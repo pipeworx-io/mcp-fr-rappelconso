@@ -1,0 +1,33 @@
+{
+  "name": "@pipeworx/mcp-fr-rappelconso",
+  "version": "0.1.0",
+  "description": "fr-rappelconso -- RappelConso, France's government consumer product recall register (food, consumer goods, vehicles), published by the DGCCRF as open data under the Licence Ouverte v2.0 (Etalab). Read live per call; nothing is stored. The data is in French.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./tools.json": "./tools.json",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "mcp-fr-rappelconso": "bin/cli.js"
+  },
+  "files": ["bin/", "lib/", "tools.json", "server.json"],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": ["mcp", "mcp-server", "model-context-protocol", "pipeworx", "fr-rappelconso"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pipeworx-io/mcp-fr-rappelconso.git"
+  },
+  "mcpName": "io.github.pipeworx-io/fr-rappelconso",
+  "pipeworx": {
+    "mode": "gateway",
+    "slug": "fr-rappelconso",
+    "gatewaySlug": "fr-rappelconso",
+    "sourceHash": "v1-b70a998cd2eaa3527cbddba0e14dc41bc5ddaed929d8dc6842681f808ce008e0",
+    "sourceCommit": "6e7ae693219a515a7ee6dd88d02390ab290fbad3"
+  }
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "name": "fr_rappelconso_search",
+    "description": "Search RappelConso, France's official consumer product recall register run by the DGCCRF (about 19,000 recalls: food, baby and children's goods, electrical appliances, cosmetics, home goods, sports, clothing, vehicles; newest first). Each hit gives the recall id and reference, publication date, category and sub-category, product name, brand, the reason for the recall and the risks as stated, and the link to the official notice. The data is French, so French words match best (salmonelle, listeria, fromage, poussette, jouet); an English query that matches nothing says so. Filter by category (alimentation, or English food / vehicles / baby / cosmetics / home / sports / clothing) and publication dates. Example: query=\"salmonelle\", category=\"food\", date_from=\"2026-01-01\". For consumer instructions, distributors, sale period and batch identifiers use fr_rappelconso_get.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "Words in the recall, in French for best results: product, brand, hazard (e.g. \"salmonelle\", \"fromage\", \"poussette\"). Optional."
+        },
+        "category": {
+          "type": "string",
+          "description": "Product category: alimentation (food), appareils électriques, outils, automobiles et moyens de déplacement, bébés-enfants (hors alimentaire), hygiène-beauté, maison-habitat, sports-loisirs, vêtements mode epi, equipements de communication, autres. English words (food, vehicles, baby, cosmetics, home, sports, clothing) also work."
+        },
+        "date_from": {
+          "type": "string",
+          "description": "Only recalls published on or after this ISO date (YYYY-MM-DD)."
+        },
+        "date_to": {
+          "type": "string",
+          "description": "Only recalls published on or before this ISO date (YYYY-MM-DD)."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Maximum recalls returned (1-50, default 10)."
+        }
+      }
+    }
+  },
+  {
+    "name": "fr_rappelconso_get",
+    "description": "Get one RappelConso consumer product recall by its id (such as 23963) or its reference (such as 2026-10-0288): product name, brand, category, models and references, product identification (barcodes, batch numbers, best-before dates), packaging, sale period and area, storage, distributors, the reason for the recall, the risks, the health recommendations and instructions to consumers as stated, compensation, links to the official notice, poster and product list. The text is French, quoted as published. An unknown id returns found:false. Example: id=\"23963\".",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Recall id (e.g. \"23963\") or reference (e.g. \"2026-10-0288\") as returned by fr_rappelconso_search."
+        }
+      },
+      "required": [
+        "id"
+      ]
+    }
+  }
+]
